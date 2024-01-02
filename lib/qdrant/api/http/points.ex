@@ -77,8 +77,7 @@ defmodule Qdrant.Api.Http.Points do
   @type scroll_body :: %{
           offset: non_neg_integer() | String.t(),
           limit: non_neg_integer(),
-          filter: filter_type(),
-          with_payload: with_payload_interface(),
+          filter: %{must: filter_type(), should: filter_type(), must_not: filter_type()} | nil,          with_payload: with_payload_interface(),
           with_vector: boolean() | list(String.t())
         }
 
